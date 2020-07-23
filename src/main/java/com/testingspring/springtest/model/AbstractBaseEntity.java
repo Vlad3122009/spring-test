@@ -1,10 +1,13 @@
 package com.testingspring.springtest.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 
 
 @Data
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class AbstractBaseEntity {
 
     @NonNull

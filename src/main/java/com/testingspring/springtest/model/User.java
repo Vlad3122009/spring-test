@@ -10,19 +10,18 @@ import java.util.Set;
 public class User extends AbstractNamedEntity {
 
     @NonNull
-    private String email;
+    private final String email;
 
     @NonNull
-    private String password;
+    private final String password;
 
-    @NonNull
     private boolean enable = true;
 
     @NonNull
-    private Date registered = new Date();
+    private final Date registered = new Date();
 
     @Singular
-    private Set<Role> roles;
+    private final Set<Role> roles;
 
     protected User(Integer id, String name,String email, String password, Role role, Role... roles) {
         this(id, name, email, password, true,EnumSet.of(role,roles));
