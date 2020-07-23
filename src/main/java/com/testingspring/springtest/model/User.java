@@ -1,19 +1,27 @@
 package com.testingspring.springtest.model;
 
+import lombok.*;
+
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.Set;
 
+@Data
 public class User extends AbstractNamedEntity {
 
+    @NonNull
     private String email;
 
+    @NonNull
     private String password;
 
+    @NonNull
     private boolean enable = true;
 
+    @NonNull
     private Date registered = new Date();
 
+    @Singular
     private Set<Role> roles;
 
     protected User(Integer id, String name,String email, String password, Role role, Role... roles) {
@@ -26,58 +34,5 @@ public class User extends AbstractNamedEntity {
         this.password = password;
         this.enable = enable;
         this.roles = roles;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isEnable() {
-        return enable;
-    }
-
-    public void setEnable(boolean enable) {
-        this.enable = enable;
-    }
-
-    public Date getRegistered() {
-        return registered;
-    }
-
-    public void setRegistered(Date registered) {
-        this.registered = registered;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", enable=" + enable +
-                ", registered=" + registered +
-                ", roles=" + roles +
-                ", name='" + name + '\'' +
-                ", id=" + id +
-                '}';
     }
 }
