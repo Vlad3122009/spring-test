@@ -12,7 +12,7 @@ public class AbstractNamedEntity extends AbstractBaseEntity{
 
     @NonNull
     @NotBlank
-    @Size(min = 2, max = 100)
+    @Size(min = 2, max = 15)
     protected String name;
 
     protected AbstractNamedEntity(Integer id, String name) {

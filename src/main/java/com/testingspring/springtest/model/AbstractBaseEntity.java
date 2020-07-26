@@ -7,7 +7,6 @@ import lombok.NonNull;
 
 @Data
 public class AbstractBaseEntity {
-    public static final int START_SEQ = 100000;
 
     @NonNull
     protected Integer id;

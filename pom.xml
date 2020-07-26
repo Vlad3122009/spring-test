@@ -61,9 +61,6 @@
 		</dependency>
 	</dependencies>
 
-	<profiles>
-	</profiles>
-
 	<build>
 		<plugins>
 			<plugin>

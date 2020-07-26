@@ -16,7 +16,7 @@ public class User extends AbstractNamedEntity {
     @NonNull
     @Email
     @NotBlank
-    @Size(max = 100)
+    @Size(max = 50)
     private final String email;
 
     @NonNull
