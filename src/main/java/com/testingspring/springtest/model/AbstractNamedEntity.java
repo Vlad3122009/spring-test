@@ -3,8 +3,7 @@ package com.testingspring.springtest.model;
 import lombok.Data;
 import lombok.NonNull;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -14,8 +13,7 @@ public class AbstractNamedEntity extends AbstractBaseEntity{
 
     @NonNull
     @NotBlank
-    @Size(min = 2, max = 100)
-    @Column(name = "name", nullable = false)
+    @Size(min = 2, max = 15)
     protected String name;
 
     protected AbstractNamedEntity(Integer id, String name) {

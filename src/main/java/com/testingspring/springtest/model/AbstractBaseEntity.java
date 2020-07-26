@@ -8,6 +8,7 @@ import lombok.NonNull;
 import javax.persistence.*;
 
 
+
 @Data
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Access(AccessType.FIELD)
