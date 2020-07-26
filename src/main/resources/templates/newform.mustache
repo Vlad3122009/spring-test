@@ -26,7 +26,7 @@
 									<a class="gn-icon gn-icon-cog"><span></span></a>
 								</li-->
 								<li>
-									<a class="gn-icon gn-icon-download" href="/newform">Создать новую форму</a>
+									<a class="gn-icon gn-icon-download" href="#">Создать новую форму</a>
 									<!--ul class="gn-submenu"--> <!-- Подменю оставил пока вдруг пригодится-->
 										<!--li><a class="gn-icon gn-icon-cog"></a></li>
 									</ul-->
@@ -56,6 +56,37 @@
 		</script>
 		
 		
+		<form class="newf">
+			<div>
+				<input type="text" placeholder="Новая Тема">
+			</div>
+			<div>
+				<label>Введите вопрос</label>
+				<textarea></textarea>
+			</div>
+			
+			<div>
+				<label>Введите ответы, и укажите галочкой правильные</label>
+				<ul>
+					<li>
+						<label><input type="checkbox"><input type="text" placeholder="Новый ответ"></label>
+					</li>
+					<li>
+						<label><input type="checkbox"><input type="text" placeholder="Новый ответ"></label>
+					</li>
+					<li>
+						<label><input type="checkbox"><input type="text" placeholder="Новый ответ"></label>
+					</li>
+				</ul>
+			</div>
+			
+			<div>
+				
+				<button type="submit" href="/main">Сохранить</button>
+				<button type="reset" href="/main">Отмена</button>
+			</div>
+		</form>
 		
+	
 	</body>
 </html>
