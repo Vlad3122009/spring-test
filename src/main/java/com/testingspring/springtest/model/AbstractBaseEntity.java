@@ -13,7 +13,7 @@ import javax.persistence.*;
 //@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Access(AccessType.FIELD)
 @MappedSuperclass
-public class AbstractBaseEntity {
+public abstract class AbstractBaseEntity {
     public static final int START_SEQ = 100000;
 
     @NonNull

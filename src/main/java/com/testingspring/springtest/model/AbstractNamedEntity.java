@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 
 @Data
 @MappedSuperclass
-public class AbstractNamedEntity extends AbstractBaseEntity{
+public abstract class AbstractNamedEntity extends AbstractBaseEntity{
 
     @NonNull
     @NotBlank
