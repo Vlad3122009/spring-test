@@ -10,37 +10,37 @@ public class PageController {
     //MainPage
     @GetMapping("/main")
     public String mainPage() {
-       return "/main";
+       return "main";
     }
 
     //RegistrationPage
     @GetMapping("/registration")
     public String registrationPage() {
-        return "/registration";
+        return "registration";
     }
 
     //AuthorizedPage
     @GetMapping("/authorized")
     public String authorizedPage() {
-        return "/authorized";
+        return "authorized";
     }
 
     //NewFormPage
     @GetMapping("/newform")
     public String newformPage() {
-        return "/newform";
+        return "newform";
     }
 
     //AnswerFormPage
     @GetMapping("/answerform")
     public String answerformPage() {
-        return "/answerform";
+        return "answerform";
     }
 
     //ScoreCountPage
     @GetMapping("/scorecount")
     public String scorecountPage() {
-        return "/scorecount";
+        return "scorecount";
     }
 
 

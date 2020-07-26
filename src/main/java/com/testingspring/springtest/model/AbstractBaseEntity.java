@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 
 @Data
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
+//@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Access(AccessType.FIELD)
 @MappedSuperclass
 public class AbstractBaseEntity {
