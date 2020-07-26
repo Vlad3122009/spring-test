@@ -1,6 +1,7 @@
 package com.testingspring.springtest.model;
 
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 
 import java.util.Date;
 import java.util.EnumSet;
@@ -11,12 +12,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
+@Table(name = "usersA", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
+@Entity
 public class User extends AbstractNamedEntity {
 
     @NonNull
-    @Email
     @NotBlank
     @Size(max = 50)
+    private final String email;
+
+    @NonNull
+    @NotBlank
+    @Size(max = 100)
     private final String email;
 
     @NonNull
@@ -24,6 +31,9 @@ public class User extends AbstractNamedEntity {
     @Size(min = 5, max = 100)
     private final String password;
 
+    private boolean enable = true;
+
+    @NonNull
     private boolean enable = true;
 
     @NonNull
