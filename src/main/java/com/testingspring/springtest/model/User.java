@@ -1,13 +1,10 @@
 package com.testingspring.springtest.model;
 
 import lombok.*;
-import org.hibernate.annotations.Table;
 
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.Set;
-import javax.persistence.Entity;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
