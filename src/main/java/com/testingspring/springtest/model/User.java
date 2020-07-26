@@ -2,15 +2,18 @@ package com.testingspring.springtest.model;
 
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Table;
 
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+/**
 @Data
 @Table(name = "usersA", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
 @Entity
@@ -55,3 +58,4 @@ public class User extends AbstractNamedEntity {
         this.roles = roles;
     }
 }
+    */

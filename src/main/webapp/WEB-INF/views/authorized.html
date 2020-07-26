@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru" class="no-js">
+<html lang="ru" class="no-js" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<title>Вопросы и ответы {{some}}</title>
 
-        <link rel="shortcut icon" href="../favicon.ico">
-        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="js/modernizr.custom.js"></script>
+        <!--link rel="shortcut icon" href="../favicon.ico"-->
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/normalize.css}" href="/resources/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/demo.css}" href="/resources/css/demo.css" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/css/component.css}" href="/resources/css/component.css" />
+		<link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" href="/resources/css/style.css" />
+        <script src="/resources/js/modernizr.custom.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -26,7 +26,7 @@
 									<a class="gn-icon gn-icon-cog"><span></span></a>
 								</li-->
 								<li>
-									<a class="gn-icon gn-icon-download" href="/newform">Создать новую форму</a>
+									<a class="gn-icon gn-icon-download" href="newform">Создать новую форму</a>
 									<!--ul class="gn-submenu"--> <!-- Подменю оставил пока вдруг пригодится-->
 										<!--li><a class="gn-icon gn-icon-cog"></a></li>
 									</ul-->
@@ -59,7 +59,7 @@
 		<section class="container">
 		<div class="login">
 			<h1>Введите свою почту и пароль для входа</h1>
-			<form method="post" action="/main">
+			<form method="post" action="main">
 				<p><input type="text" name="Ваш Email" value="" placeholder="Email"></p>
 				<p><input type="password" name="Ваш пароль" value="" placeholder="Password"></p>
 			
@@ -67,7 +67,7 @@
 			</form>
 		</div>
 		<div class="registration">
-			<p>Возможно вы не зарегистрированы! <a href="/registration">Нажмите сюда для регистрации!</a>.</p>
+			<p>Возможно вы не зарегистрированы! <a href="registration">Нажмите сюда для регистрации!</a>.</p>
 		</div>
 		<div class="login-help">
 			<p>Вы забыли пароль, не расстраивайтесь <a href="#">Нажмите сюда чтобы сбросить пароль</a>.</p>

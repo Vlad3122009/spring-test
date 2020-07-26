@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NonNull;
 
 
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
