@@ -1,74 +1,79 @@
+
 package com.testingspring.springtest.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.format.FormatterRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.thymeleaf.spring5.SpringTemplateEngine;
-import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
-import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+
+import org.springframework.http.converter.AbstractHttpMessageConverter;
+import org.springframework.http.converter.FormHttpMessageConverter;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.*;
+
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
+
 
 import javax.swing.text.DateFormatter;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 @Configuration
-@ComponentScan("com.testingspring.springtest")
+@ComponentScan
 @EnableWebMvc
-public class SpringConfig implements WebMvcConfigurer {
-
-    private final ApplicationContext applicationContext;
-    /*
+public class SpringConfig implements WebMvcConfigurer  {
     @Override
-    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        WebMvcConfigurer.super.addResourceHandlers(registry);
-        registry.addResourceHandler("/images/**").addResourceLocations("/static/images/");
-        registry.addResourceHandler("/css/**").addResourceLocations("/static/css/");
-        registry.addResourceHandler("/js/**").addResourceLocations("/static/js/");
-        registry.addResourceHandler("/fonts/**").addResourceLocations("/static/fonts/");
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+                .addResourceHandler("/js/**")
+                .addResourceLocations("classpath:/static/js/");
+        registry
+                .addResourceHandler("/css/**")
+                .addResourceLocations("classpath:/static/css/");
+        registry
+                .addResourceHandler("/fonts/**")
+                .addResourceLocations("classpath:/static/fonts/");
     }
-    */
+
 
     @Bean
-    public ResourceBundleMessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("Messages");
-        return messageSource;
+    public FreeMarkerViewResolver viewResolver() {
+        FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
+        viewResolver.setContentType("text/html;charset=UTF-8");
+        viewResolver.setPrefix("templates/");
+        viewResolver.setSuffix(".ftlh");
+        return viewResolver;
     }
 
-    @Autowired
-    public SpringConfig(ApplicationContext applicationContext) {
-       // super();
-        this.applicationContext = applicationContext;
-    }
-
-    @Bean
-    public SpringResourceTemplateResolver templateResolver() {
-        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/views/");
-        templateResolver.setSuffix(".html");
-        return templateResolver;
-    }
-
-    @Bean
-    public SpringTemplateEngine templateEngine() {
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-        templateEngine.setEnableSpringELCompiler(true);
-        return templateEngine;
-    }
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setTemplateEngine(templateEngine());
-        registry.viewResolver(resolver);
+        registry.freeMarker();
+        registry.viewResolver(viewResolver());
+    }
+
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.forEach(converter -> {
+            if (converter instanceof AbstractHttpMessageConverter) {
+                ((AbstractHttpMessageConverter) converter).setDefaultCharset(StandardCharsets.UTF_8);
+                if (converter instanceof StringHttpMessageConverter) {
+                    ((StringHttpMessageConverter) converter).setWriteAcceptCharset(false);
+                }
+            } else if (converter instanceof FormHttpMessageConverter) {
+                ((FormHttpMessageConverter) converter).setCharset(StandardCharsets.UTF_8);
+                ((FormHttpMessageConverter) converter).setMultipartCharset(StandardCharsets.UTF_8);
+            }
+        });
     }
 }
+
+
+
+
