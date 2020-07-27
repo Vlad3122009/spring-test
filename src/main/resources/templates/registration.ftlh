@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" class="no-js" >
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
@@ -7,11 +7,11 @@
 		<title>Вопросы и ответы {{some}}</title>
 
 		<!--link rel="shortcut icon" href="../favicon.ico"-->
-		<link rel="stylesheet" type="text/css" th:href="@{/resources/css/normalize.css}" href="/resources/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" th:href="@{/resources/css/demo.css}" href="/resources/css/demo.css" />
-		<link rel="stylesheet" type="text/css" th:href="@{/resources/css/component.css}" href="/resources/css/component.css" />
-		<link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" href="/resources/css/style.css" />
-		<script src="/resources/js/modernizr.custom.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="./css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="./css/component.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<script src="./js/modernizr.custom.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -46,16 +46,33 @@
 				
 			</ul>
 			<header>
-				<h1>Вопросы и ответы<span>Для создания новой формы используйте меню слева <a href="#"></a></span></h1>	
+				<!--h1>Вопросы и ответы<span>Для создания новой формы используйте меню слева <a href=""></a></span></h1-->
 			</header> 
 		</div><!-- /container -->
-		<script src="js/classie.js"></script>
-		<script src="js/gnmenu.js"></script>
+		<script src="./js/classie.js"></script>
+		<script src="./js/gnmenu.js"></script>
 		<script>
 			new gnMenu( document.getElementById( 'gn-menu' ) );
 		</script>
-		
-		
-		
+
+		<form method="get" action="main">
+			<div>
+				<h2>Введите свою почту и пароль</h2>
+			</div>
+			<div>
+				<p>Ваш логин<input type="text" name="email" value="" placeholder="Email"></p>
+				<p>Ваш пароль<input type="password" name="password" value="" placeholder="Password"></p>
+			</div>
+
+			<div>
+				<button type="submit" name="commit" value="Login" href="main">Регистрация</button>
+			</div>
+			<div>
+
+				<p>Вы забыли пароль, не расстраивайтесь <a href="#">Нажмите сюда чтобы сбросить пароль</a>.</p>
+			</div>
+		</form>
+
+	
 	</body>
 </html>

@@ -3,8 +3,11 @@ package com.testingspring.springtest.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+
 public class PageController {
 
     //MainPage
@@ -15,13 +18,15 @@ public class PageController {
 
     //RegistrationPage
     @GetMapping("/registration")
-    public String registrationPage() {
+    public String registrationPage(@RequestParam(value = "login", required = false) String login, @RequestParam(value = "password", required = false) String password) {
+        System.out.println(login + " - " + password);
         return "registration";
     }
 
     //AuthorizedPage
-    @GetMapping("/authorized")
-    public String authorizedPage() {
+    @RequestMapping("/authorized")
+    public String authorizedPage(@RequestParam(value = "login", required = false) String login, @RequestParam(value =  "password", required = false) String password) {
+        System.out.println(login + " - " + password);
         return "authorized";
     }
 
