@@ -1,13 +1,9 @@
 package com.testingspring.springtest.model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 
 import javax.persistence.*;
-
-
 
 @Data
 //@AllArgsConstructor(access = AccessLevel.PROTECTED)
@@ -25,4 +21,12 @@ public abstract class AbstractBaseEntity {
     protected AbstractBaseEntity(Integer id){this.id = id;}
 
     public boolean isNew(){return this.id == null;}
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
 }

@@ -44,4 +44,28 @@ public class User extends AbstractNamedEntity {
         this.enable = enable;
         this.roles = roles;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
+    public Date getRegistered() {
+        return registered;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
 }
